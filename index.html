@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        .nav {
+            /* visibility: hidden; */
+            min-width: 1440px;
+            overflow: auto;
+            background-color: white;
+            position: absolute;
+            position: fixed;
+            bottom: 0;
+            /* overflow: hidden; */
+            z-index: 1;
+            border-top: 1px solid black;
+            text-align: center;
+
+        }
+
+        .iconbox i,
+        p {
+            font-size: 23px;
+            color:#D1B54B;
+
+        }
+
+        .iconbox {
+            float: left;
+            margin-left: 8%;
+            margin-top: 1%;
+            text-align: center;
+        }
+
+        .iconbox:hover p {
+            color: green;
+        }
+
+        .card {
+            max-width: 465px;
+            overflow: auto;
+            margin: auto;
+
+        }
+
+        .iconlogo {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.692);
+            text-align: center;
+            position: relative;
+            box-shadow: 0 6px 20px 0 #dbdbe8;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .iconlogo img {
+            width: 120px;
+            height: 50px;
+            border: 8px solid #D1B54B;
+            margin-top: 50px;
+        }
+
+        .iconlogo p::before {
+            content: '';
+            width: 100px;
+            border-top: 2px solid #D1B54B;
+            position: absolute;
+            left: 38%;
+            top: 70%;
+        }
+
+        .iconlogo h2 {
+            color: white;
+
+            letter-spacing: 5px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .iconlogo h4 {
+            color: white;
+            padding-top: 13px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .aboutbox {
+            width: 99%;
+            overflow: auto;
+            text-align: center;
+            border: 1px solid black;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .themestripe {
+            width: 100%;
+            height: 20px;
+            background-color: #D1B54B;
+            box-shadow: 0 10px 20px 0 #dbdbe8;
+            position: absolute;
+            top: 0;
+        }
+
+
+        .trapazoid {
+            position: relative;
+            width: 300px;
+            margin: 0 auto;
+            height: 167px;
+            background: #3c3d41;
+            border-radius: 0 0 20px 20px;
+            transform: perspective(350px) rotateX(-65deg);
+            margin-top: -50px;
+            box-shadow: 0 26px 20px 0 #dbdbe8;
+            opacity: 0.97;
+        }
+
+
+        .aboutbox::before {
+            content: '';
+            width: 45px;
+            height: 50%;
+            background-color: #D1B54B;
+            position: absolute;
+            left: -1px;
+            top: 15%;
+            border-radius: 0 40px 40px 0;
+            transform: perspective(200px) rotateY(24deg);
+            box-shadow: 0 26px 20px 0 #dbdbe8;
+            opacity: 0.97;
+        }
+
+        .aboutbox::after {
+            content: '';
+            width: 45px;
+            height: 50%;
+            background-color: #D1B54B;
+            position: absolute;
+            right: -1px;
+            top: 15%;
+            border-radius: 0 40px 40px 0;
+            transform: perspective(200px) rotateY(156deg);
+            box-shadow: 0 26px 20px 0 #dbdbe8;
+            opacity: 0.97;
+        }
+
+        .siconbox {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #D1B54B;
+            margin-left: 45%;
+            margin-top: 21%;
+            position: relative;
+
+        }
+
+        .siconbox::before {
+            content: '';
+            width: 100px;
+            height: 0;
+            position: absolute;
+            top: 25px;
+            left: -75px;
+            border-top: 2px solid #D1B54B;
+            z-index: -1;
+
+        }
+
+        .siconbox::after {
+            content: '';
+            width: 100px;
+            height: 0;
+            position: absolute;
+            top: 25px;
+            left: 32px;
+            border-top: 2px solid #D1B54B;
+            z-index: -1;
+
+        }
+
+        .siconbox i {
+            margin-top: 23%;
+            font-size: 25px;
+            color: white;
+        }
+
+        .aboutbox input {
+            margin-top: 5%;
+            border: none;
+            background-color: white;
+            text-align: center;
+        }
+
+        .WATSUP {
+            width: 90%;
+            height: 40px;
+            background-color: #D1B54B;
+            margin: auto;
+        }
+
+        .contactbox{
+            width: 40%;
+            height: 35px;
+            /* background-color: #D1B54B; */
+            float: left;
+            border: 1px solid black;
+            margin-left: 40px;
+        }
+
+        .contactbox input{
+            height: 30px;
+            width: 93%;
+            margin-top: 5px;
+            margin-right: -10px;
+            text-align: start;
+            padding-left: 10px;
+            box-sizing: border-box;
+            border: none;
+
+        }
+
+        .watsupbox{
+            width: 50%;
+            height: 40px;
+            /* background-color: aqua; */
+            float: left;
+
+        }
+
+        .watsupbox button{
+            width: 85%;
+            margin-top: 1px;
+            margin-left: -41px;
+            height: 37px;
+            background-color: green;
+            color: white;
+            font-size: 17px;
+
+        }
+
+        .sharebox{
+            width: 100%;
+            
+        }
+
+        .share{
+            width: 42%;
+            height: 40px;
+            /* background-color: blue; */
+            float: left;
+            margin-left: 41px;
+            border: 1px solid black;
+            padding-top: 9px;
+            box-sizing: border-box;
+
+        }
+
+      
+
+        .share1{
+            width: 41%;
+            height: 40px;
+            /* background-color: blanchedalmond; */
+            float: left;
+            border: 1px solid black;
+            padding-top: 9px;
+            box-sizing: border-box;
+        
+        }
+
+        .share:hover{
+            background-color: gray;
+            color: white;
+        }
+
+        .share1:hover{
+            background-color: gray;
+            color: white;
+        }
+
+        .socialmedia{
+            width: 100%;
+            height: 50px;
+            /* background-color: beige; */
+        }
+
+        .socialmedia p{
+            position: absolute;
+            bottom: 0;
+            color: black;
+            right: 125px;
+        }
+       
+        .socialicon{
+            width: 40px;
+            height: 40px;
+            background-color: blue;
+            float: left;
+            position: absolute;
+            right: 66px;
+            border-radius: 50%;
+
+        }
+
+        .socialicon1{
+            width: 40px;
+            height: 40px;
+            background-color: orangered;
+            float: left;
+            position: absolute;
+            right: 15px;
+            border-radius: 50%;
+}
+
+.socialmedia i{
+            font-size: 25px;
+            color: white;
+            margin-top: 7px;
+
+        }
+
+
+        
+       
+
+        .col-6 {
+            width: 50%;
+            float: left;
+
+        }
+
+        .col-6 p {
+            font-size: 19px;
+        }
+
+        .containt {
+            width: 100%;
+            /* overflow: auto; */
+            border: 20px solid #D1B54B;
+            border-left: 1px solid black;
+            ;
+            border-right: 1px solid black;
+            margin-bottom: 15px;
+            position: relative;
+            padding-top: 45px;
+            padding-bottom: 45px;
+            padding-left: 25px;
+            padding-right: 25px;
+            box-sizing: border-box;
+
+            transform-style: preserve-3d;
+
+        }
+
+        .containt::before {
+            content: '';
+            width: 345px;
+            height: 40px;
+            background-color: black;
+            position: absolute;
+            top: -20px;
+            left: 55px;
+            border-radius: 0 0 40px 40px;
+
+            transform: rotateX(100deg) perspective(123deg);
+        }
+
+        .containt::after {
+            content: '';
+            width: 345px;
+            height: 40px;
+            background-color: black;
+            position: absolute;
+            bottom: -20px;
+            left: 55px;
+            border-radius: 40px 40px 0 0;
+
+            transform: rotateX(100deg) perspective(123deg);
+        }
+
+        h1 {
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            width: 100%;
+            border-top: 2px solid #D1B54B;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+
+        }
+
+        .col-6 p {
+            color: black;
+        }
+
+        .written {
+            width: 100%;
+        }
+
+        .imgbox {
+            width: 100%;
+            overflow: auto;
+            margin: auto;
+        }
+
+        .imgbox img {
+            width: 100%;
+            height: 500px;
+        }
+
+        .row {
+            width: 100%;
+            margin-top: 55px;
+            display: flex;
+            justify-content: start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+
+
+        }
+
+        .row a {
+            margin-left: 50px;
+            border: 1px solid black;
+            padding: 3px;
+            text-decoration: none;
+        }
+
+        .col-4 {
+            width: 33%;
+            float: left;
+        }
+
+        .col-4 img {
+            width: 100%;
+            height: 200px;
+        }
+
+        .serviceimg {
+            width: 100%;
+        }
+
+        .serviceimg img {
+            width: 100%;
+            height: 300px;
+        }
+
+        .servicebox {
+            width: 45%;
+            padding-left: 4px;
+            padding-right: 4px;
+            padding-bottom: 10px;
+            box-sizing: border-box;
+            /* background-color: aqua; */
+            text-align: center;
+            border: 1px solid black;
+            background-color: #dbdbe8;
+
+        }
+
+        .buttonbox {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .buttonbox button {
+            height: 40px;
+            border-radius: 20px;
+            background-color: green;
+            color: white;
+            border: none;
+        }
+
+        .scannerbox {
+            width: 100%;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        .scannerbox img {
+            width: 100%;
+            height: 500px;
+        }
+
+        .reviewbox {
+            width: 100%;
+            margin-top: -20px;
+        }
+
+        .horizontal {
+            width: 100%;
+        }
+
+        .horizontal hr {
+            background-color: blue;
+            height: 1px;
+        }
+
+        .reviewcontent{
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            
+        }
+
+        .reviewcontent input{
+            width: 95%;
+            height: 41px;
+            padding-left: 15px;
+            margin-top: 20px;
+
+        }
+
+        .reviewcontent textarea{
+            width: 95%;
+            height: 70px;
+            margin-top: 10px;
+            padding-left: 15px;
+
+        }
+
+        .reviewcontent button{
+            width: 100%;
+            height: 40px;
+            margin-top: 10px;
+            color: blueviolet;
+            border: 1px solid blueviolet;
+            
+        }
+
+        .reviewcontent:hover button{
+            background-color: blue;
+            color: white;
+        }
+
+        textarea{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .enquirybox{
+            width: 100%;
+            
+        }
+
+        .enquirybox input{
+            
+            width: 95%;
+            height: 30px;
+            padding-left: 10px;
+            margin-top: 10px;
+
+        }
+
+        .enquirybox select{
+            margin-top: 10px;
+             width: 99%;
+              height: 40px;
+            padding-left: 10px;
+
+        }
+
+        .enquirybox textarea{
+            width: 95%;
+            height: 70px;
+            margin-top: 10px;
+            padding-left: 15px;
+
+        }
+
+        .enquirybox button{
+            width: 100%;
+            height: 40px;
+            margin-top: 10px;
+            color: blueviolet;
+            border: 1px solid blueviolet;
+        }
+
+        .enquirybox:hover button{
+            background-color: blue;
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="">
+            <div class="iconbox">
+                <i class="fa-solid fa-house-chimney"></i>
+                <p>Home</p>
+            </div>
+        </a>
+
+        <a href="#3">
+            <div class="iconbox">
+                <i class="fa-solid fa-briefcase"></i>
+                <p>About us</p>
+            </div>
+        </a>
+
+        <a href="#a">
+            <div class="iconbox">
+                <i class="fa-solid fa-box-open"></i>
+                <p>Offers</p>
+            </div>
+        </a>
+
+        <a href="#5">
+            <div class="iconbox">
+                <i class="fa-solid fa-images"></i>
+                <p>Gallery</p>
+            </div>
+        </a>
+
+        <a href="#c">
+            <div class="iconbox">
+                <i class="fa-solid fa-envelopes-bulk"></i>
+                <p>Services</p>
+            </div>
+        </a>
+
+        <a href="#d">
+            <div class="iconbox">
+                <i class="fa-solid fa-star"></i>
+                <p>Rattings</p>
+            </div>
+        </a>
+
+        <a href="#9">
+            <div class="iconbox">
+                <i class="fa-solid fa-question"></i>
+                <p>Enquiry</p>
+            </div>
+        </a>
+    </div>
+
+
+    <div class="card">
+
+        <div  class="iconlogo">
+            <img src="barodian.png" alt="" style="background-color: white;">
+            <h2>Barodian Market</h2>
+            <p></p>
+            <h4>Kuldeep Virpura</h4>
+        </div>
+
+
+        <div  class="aboutbox">
+
+            <div class="themestripe"></div>
+            <div class="trapazoid"></div>
+
+            
+            <div class="siconbox"><i class="fa-solid fa-phone"></i></div>
+            <input type="text" disabled value="9922993399" id="4">
+
+
+            <div class="siconbox"><i class=" far fa-envelope "></i></div>
+            <input type="text" disabled value="meet123@hhh" id="4">
+
+            <div class="siconbox"><i class="fas fa-globe "></i></div>
+            <input type="text" disabled value="barodianmarket.com" id="6" style="margin: left 110px;">
+
+            <div class="siconbox"><i class="fa-solid fa-location-dot"></i></div>
+            <input type="text" disabled value="sayajiganj, vadodara" id="8">
+
+            <div class="row">
+                <div class="contactbox">
+                    <input type="text" placeholder="Enter your number">
+                </div>
+                <div class="watsupbox">
+                    <button><i class="fa-brands fa-whatsapp"></i>  Share on watsapp</button>
+                </div>
+            </div>
+
+            <div class="sharebox">
+                <div class="share">
+                    <i class="fa-solid fa-share-nodes"></i> Add to phonebook
+                </div>
+                <div class="share1">
+                    <i class="fa-solid fa-share-nodes"></i> Share
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="socialmedia">
+                    <p style="float: left;">Follow us</p>
+                    <div class="socialicon"><i class="fa-brands fa-facebook-f"></i></div>
+                    <div class="socialicon1"><i class="fa-brands fa-instagram"></i></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="3">
+        <div  class="containt">
+            <h1> About Us </h1>
+
+            <div cla ss="row">
+                <div class="col-6">
+                    <h3>Company Nmae :</h4>
+                        <h3>Year of Est. :</h4>
+                            <h3>Location :</h4>
+
+                </div>
+                <div class="col-6">
+                    <p>Barodian Market</h5>
+                    <p>2017</h5>
+                    <p>Vadodara</h5>
+                </div>
+
+                <hr>
+
+                <div class="writting">
+                    <p style="color: black; text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Provident ipsam tempore et voluptas, cum neque excepturi iste nemo ea eaque minima sint
+                        dolores similique nihil, omnis maiores sequi quo eveniet sed rem. Repellendus neque ad nesciunt
+                        nemo, excepturi eum nulla, deserunt quasi sequi totam esse similique incidunt quis sit eos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div id="a">
+        <div  class="containt">
+            <h1>Offers</h1>
+            <div class="imgbox">
+                <img src="download.jpg" alt="">
+            </div>
+
+        </div>
+    </div>
+
+    <div id="5">
+        <div  class="containt">
+            <h1>Gallery</h1>
+
+            <div class="row">
+                <a href="">All</a>
+                <a href="">Hairstyle</a>
+                <a href="">Spa</a>
+                <a href="">Message</a>
+            </div>
+
+            <div class="row">
+                <div class="col-4"><img src="download (1).jpg" alt=""></div>
+                <div class="col-4"><img src="download (2).jpg" alt=""></div>
+                <div class="col-4"><img src="download (3).jpg" alt=""></div>
+                <div class="col-4"><img src="download (3).jpg" alt=""></div>
+
+            </div>
+
+        </div>
+    </div>
+
+        <div id="c">
+        <div  class="containt">
+            <h1>Services</h1>
+            <div class="row">
+                <div class="serviceimg">
+                    <img src="download (2).jpg" alt="">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="servicebox">
+                    <h2>Bridal HD</h4>
+                        <hr>
+                        <p style="color: black;">Price RS. 9500</p>
+                        <input type="checkbox">I have a bike
+                </div>
+                <div class="servicebox">
+                    <h2>Bridal HD</h4>
+                        <hr>
+                        <p style="color: black;">Price RS. 9500</p>
+                        <input type="checkbox">I have a bike
+                </div>
+
+                <div class="buttonbox">
+                    <button><i class="fa-brands fa-whatsapp"></i> Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div>
+        <div  class="containt">
+            <h1>Account Details</h1>
+
+            <div class="scannerbox">
+                <img src="download.png" alt="">
+                <h2 style="margin-top:-40px">Golden Salon</h3>
+                    <p style="color: black;">12ssbu5692Z </p>
+            </div>
+        </div>
+    </div>
+
+
+
+        <div id="d">
+        <div  class="containt">
+            <h1>REVIEW AND RATTINGS</h1>
+
+            <div class="reviewbox">
+                <div class="col-6">
+                    <h4>Arpit Patel</h4>
+                </div>
+                <div class="col-6">
+                    <h4>On Feabuary 6, 2021</h4>
+                </div>
+                <p style="color: black; font-size: 17px;">Suoer Work 👍 </p>
+
+                <div class="horizontal">
+                    <hr>
+                </div>
+
+                <div class="reviewcontent">
+                    <input type="text" name="" id="" placeholder="Enter Full Name">
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Enter your Feedback"></textarea>
+                    <button>Submit</button>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="9">
+        <div  class="containt" style="margin-bottom: 150px;">
+            <h1>Contact Us</h1>
+
+            <div class="enquirybox">
+                <input type="text " placeholder="Enter Full Nmae *">
+                <input type="text" placeholder="Watsup contact number *">
+                <select name="cars" id="cars" placeholder="Select Category" >
+                    <option value="Select Category">Select Category</option>
+                    <option value="Treading">Treading</option>
+                    <option value="Wax">Wax</option>
+                    <option value="Detan">Detan</option>
+                    <option value="Spa">Spa</option>
+                    <option value="Message">Message</option>
+                    <option value="Nail Art">Nail Art</option>
+                    
+                  </select>
+
+                  <textarea name="" id="" cols="30" rows="10" placeholder="Enter Address"></textarea>
+                    <button>Enquiry</button>
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+</body>
+
+</html>
